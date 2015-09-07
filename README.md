@@ -1,5 +1,5 @@
 # byte-music-converter
-Convert Byte music to MIDI, WAV, or MP3
+Convert Byte music to MIDI, WAV, or MP3.
 
 <a href="https://clyp.it/u40dl3tr">Here's what it sounds like.</a>
 
