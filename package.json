@@ -1,0 +1,15 @@
+{
+  "name": "byte-music-converter",
+  "version": "0.0.1",
+  "description": "Byte Music -> MIDI/WAV/MP3",
+  "main": "index.js",
+  "author": "Dom Hofmann (dom@byte.co)",
+  "license": "MIT",
+  "scripts": {
+    "start": "./index.js"
+  },
+  "dependencies": {
+    "jsmidgen": "^0.1.2",
+    "minimist": "^1.2.0"
+  }
+}
