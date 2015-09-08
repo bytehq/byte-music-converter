@@ -1,0 +1,7 @@
+{
+    "cloudStorageBucket": "byte-music-converter",
+    "dataBackend": "datastore",
+    "gcloud": {
+        "projectId": "byte-music-converter"
+    }
+}

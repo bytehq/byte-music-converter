@@ -1,0 +1,21 @@
+{
+    "eqeqeq": true,
+    "indent": 4,
+    "latedef": true,
+    "newcap": true,
+    "undef": true,
+    "unused": true,
+    "esnext": true,
+    "multistr": true,
+    "browser": true,
+    "jquery": true,
+    "node": true,
+    "noyield": true,
+    "mocha": true,
+    "globals": {
+        "config": false,
+        "dogstatsd": false,
+        "gcloud": false,
+        "logger": false
+    }
+}
