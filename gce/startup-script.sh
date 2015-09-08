@@ -1,11 +1,9 @@
 #! /bin/bash
 
-# [START startup]
 # Talk to the metadata server to get the project id
 PROJECTID=$(curl -s "http://metadata.google.internal/computeMetadata/v1/project/project-id" -H "Metadata-Flavor: Google")
 
 # Install logging monitor and configure it to pickup application logs
-# [START logging]
 curl -s "https://storage.googleapis.com/signals-agents/logging/google-fluentd-install.sh" | bash
 
 # Fluent-plugin-google-cloud has a fix that hasn't been rolled into the full google-fluentd
@@ -45,7 +43,7 @@ service google-fluentd restart &
 curl -sL https://deb.nodesource.com/setup_dev | bash -
 
 # Install dependencies from apt
-apt-get install -y git nodejs build-essential supervisor tig lame fluid-synth
+apt-get install -y git nodejs build-essential supervisor tig lame fluidsynth
 
 # Install Datadog agents
 DD_API_KEY=7c4ac41f8a83e4841a988805b94b86a9 bash -c "$(curl -L https://raw.githubusercontent.com/DataDog/dd-agent/master/packaging/datadog-agent/source/install_agent.sh)"
@@ -77,4 +75,3 @@ supervisorctl reread
 supervisorctl update
 
 # Application should now be running under supervisor
-# [END startup]

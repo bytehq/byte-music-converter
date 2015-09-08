@@ -33,8 +33,8 @@ SERVICE=$APP_ID-service
 gcloud compute instance-templates create $TEMPLATE \
   --machine-type $MACHINE_TYPE \
   --scopes $SCOPES \
-  --metadata DEPLOY_KEY=$DEPLOY_KEY \
-  --metadata API_AUTH_KEY=$BYTE_MUSIC_CONVERTER_AUTH_KEY \
+  --metadata DEPLOY_KEY=$DEPLOY_KEY,\
+  API_AUTH_KEY=$BYTE_MUSIC_CONVERTER_AUTH_KEY \
   --metadata-from-file startup-script=$STARTUP_SCRIPT \
   --tags $TAGS
 
