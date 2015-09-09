@@ -47,7 +47,7 @@
         "url": "git@github.com:bytehq/byte-music-converter.git"
     },
     "scripts": {
-        "start": "grunt run",
+        "start": "node --harmony index.js",
         "test": "grunt test"
     },
     "version": "0.0.1"
