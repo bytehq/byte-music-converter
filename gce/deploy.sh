@@ -97,3 +97,9 @@ gcloud compute forwarding-rules create $SERVICE-http-rule \
   --global \
   --target-http-proxy $SERVICE-proxy \
   --port-range 80
+
+gcloud compute firewall-rules create default-allow-http-3000 \
+  --allow tcp:3000 \
+  --source-ranges 0.0.0.0/0 \
+  --target-tags http-server \
+  --description "Allow port 3000 access to http-server"

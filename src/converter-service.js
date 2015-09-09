@@ -129,6 +129,8 @@ var populateMidiFile = function (music) {
 
 
 var convert = function* (name, music) {
+    if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir);
+
     var file = populateMidiFile(music);
 
     var errorState;

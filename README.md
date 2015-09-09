@@ -92,6 +92,6 @@ To manually deploy code changes on a box, select the byte-music-converter instan
 
 ```
 cd /opt/app
-sudo ./git-deploy
+sudo ./git-deploy.sh
 sudo supervisorctl restart nodeapp
 ```
