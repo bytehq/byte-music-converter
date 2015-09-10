@@ -2,7 +2,7 @@
 
 set -ex
 
-ZONE=us-central1-f
+ZONE=us-central1-c
 
 APP_ID=byte-music-converter
 
@@ -15,7 +15,8 @@ logging-write,\
 storage-full,\
 datastore,\
 https://www.googleapis.com/auth/pubsub,\
-https://www.googleapis.com/auth/projecthosting"
+https://www.googleapis.com/auth/projecthosting,\
+https://www.googleapis.com/auth/cloud-platform"
 TAGS=http-server
 
 NUM_INSTANCES=1

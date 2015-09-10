@@ -25,3 +25,5 @@ gcloud compute http-health-checks delete ah-health-check
 gcloud compute instance-groups managed delete $GROUP
 
 gcloud compute instance-templates delete $TEMPLATE
+
+gcloud compute firewall-rules delete default-allow-http-3000
