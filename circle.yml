@@ -1,3 +1,9 @@
+dependencies:
+  pre:
+    - sudo apt-get update
+    - sudo apt-get install lame
+    - sudo apt-get install fluidsynth
+
 machine:
   environment:
     NODE_ENV: integration
