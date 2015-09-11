@@ -141,7 +141,7 @@ var convert = function* (name, music) {
     try {
         yield fs.writeFile(outputDir + name + '.mid', file.toBytes(), 'binary');
         yield exec('fluidsynth --gain 2.0 -F ' + outputDir + name + '.wav ./resources/Byte.sf2 ' + outputDir + name + '.mid');
-        yield exec('lame --preset medium ' + outputDir + name + '.wav ' + outputDir + name + '.mp3');
+        yield exec('lame -V 6 --vbr-new ' + outputDir + name + '.wav ' + outputDir + name + '.mp3');
         yield storageService.uploadFile(outputDir + name + '.mp3');
     } catch (err) {
         errorState = err;
