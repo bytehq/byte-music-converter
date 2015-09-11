@@ -132,8 +132,14 @@ app.use(routes.allowedMethods());
 
 routes.get('/ping', function* () {
     logger.info('PING');
-    yield converterService.convert('testfile', JSON.parse(yield fs.readFile('./test/testfile.json', 'utf8')));
     this.body = 'pong';
+});
+
+routes.get('/test', function* () {
+    var url = yield converterService.convert('test', JSON.parse(yield fs.readFile('./test/testfile.json', 'utf8')));
+    this.body = {
+        'url': url
+    };
 });
 
 routes.post('/convert', bodyParser, function* () {

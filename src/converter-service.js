@@ -81,29 +81,32 @@ var populateMidiFile = function (music) {
     }
 
     for (var j = 0; j < tracks.length; ++j) {
-        midiTracks[0].setInstrument(j, j === 15 ? 127 : i);
+        midiTracks[0].setInstrument(j, j === 15 ? 127 : j);
         midiTracks[0].setTempo(music.bpm, 0);
     }
 
     var instructions = [];
-    for (var k = 0; k < music.instructions.length; ++k) {
-        var beat = music.instructions[k];
+    // Loop five times
+    for (var n = 0; n < 5; ++n) {
+        for (var k = 0; k < music.instructions.length; ++k) {
+            var beat = music.instructions[k];
 
-        for (var l = 0; l < beat.length; ++l) {
-            var beatInstruction = beat[l];
-            var offset = parseInt(128 * beatInstruction.time);
-            var midiNote;
-            if (beatInstruction.type === 0) {
-                midiNote = note(beatInstruction.note);
-            } else {
-                midiNote = drumNote(beatInstruction.note);
+            for (var l = 0; l < beat.length; ++l) {
+                var beatInstruction = beat[l];
+                var offset = parseInt(128 * (beatInstruction.time + (n * music.length)));
+                var midiNote;
+                if (beatInstruction.type === 0) {
+                    midiNote = note(beatInstruction.note);
+                } else {
+                    midiNote = drumNote(beatInstruction.note);
+                }
+                instructions.push({
+                    velocity: beatInstruction.velo,
+                    offset: offset,
+                    note: midiNote,
+                    track: trackIndex(beatInstruction.bank)
+                });
             }
-            instructions.push({
-                velocity: beatInstruction.velo,
-                offset: offset,
-                note: midiNote,
-                track: trackIndex(beatInstruction.bank)
-            });
         }
     }
 
@@ -138,7 +141,7 @@ var convert = function* (name, music) {
     try {
         yield fs.writeFile(outputDir + name + '.mid', file.toBytes(), 'binary');
         yield exec('fluidsynth --gain 2.0 -F ' + outputDir + name + '.wav ./resources/Byte.sf2 ' + outputDir + name + '.mid');
-        yield exec('lame --preset standard ' + outputDir + name + '.wav ' + outputDir + name + '.mp3');
+        yield exec('lame --preset medium ' + outputDir + name + '.wav ' + outputDir + name + '.mp3');
         yield storageService.uploadFile(outputDir + name + '.mp3');
     } catch (err) {
         errorState = err;
