@@ -2,7 +2,7 @@
 
 set -x
 
-ZONE=us-central1-f
+ZONE=us-central1-c
 gcloud config set compute/zone $ZONE
 
 APP_ID=byte-music-converter
