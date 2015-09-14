@@ -87,7 +87,7 @@ var populateMidiFile = function (music) {
 
     var instructions = [];
     // Loop until 30s
-    var numLoops = Math.ceil(40 / music.length);
+    var numLoops = Math.ceil(music.bpm / (music.length * 2));
     for (var n = 0; n < numLoops; ++n) {
         for (var k = 0; k < music.instructions.length; ++k) {
             var beat = music.instructions[k];
