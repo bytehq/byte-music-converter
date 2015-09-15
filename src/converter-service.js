@@ -40,14 +40,14 @@ var notes = [
 ];
 
 var drums = [
+    "Thump",
     "Kick",
+    "Glitch",
     "Snare",
     "Clap",
-    "Hat",
-    "Thump",
-    "Glitch",
     "Tambourine",
     "Whistle",
+    "Hat",
     "Block",
     "Stick",
     "Shaker",
@@ -67,7 +67,7 @@ var note = function (note) {
 };
 
 var drumNote = function (drum) {
-    return drums.indexOf(drum) + 36;
+    return drums.indexOf(drum) + 35;
 };
 
 
