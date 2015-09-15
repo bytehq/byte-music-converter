@@ -19,7 +19,7 @@ app.use(json({
 }));
 
 app.on('error', function (err) {
-    logger.errorLogger.log('error', err);
+    logger.errorLogger.error(err);
     dogstatsd.increment('bytemusicconverter.errors');
     this.status = 500;
 });

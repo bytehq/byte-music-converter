@@ -11,7 +11,7 @@ process.on('uncaughtException', function (exception) {
 co(function* startServer() {
     yield require('./src/server').start();
 }).catch(function (exception) {
-    logger.errorLogger.log('Woah, uncaught exception ' + exception);
+    logger.errorLogger.error('Woah, uncaught exception ' + exception);
     setTimeout(function () {
         process.exit();
     }, 2000);

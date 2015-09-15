@@ -128,10 +128,10 @@ var populateMidiFile = function (music) {
         try {
             midiTracks[0].addNoteOn(instruction.track, instruction.note, delay, instruction.velocity);
         } catch (err) {
-            logger.errorLogger.log(err);
-            logger.errorLogger.log('Track: ' + instruction.track + ', Note: ' + instruction.note + ', Delay: ' + delay + ', Velocity: ' + instruction.velocity);
+            logger.errorLogger.error(err);
+            logger.errorLogger.error('Track: ' + instruction.track + ', Note: ' + instruction.note + ', Delay: ' + delay + ', Velocity: ' + instruction.velocity);
+            throw err;
         }
-
     }
 
     return file;
