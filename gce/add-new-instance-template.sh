@@ -7,8 +7,8 @@ ZONE=us-central1-c
 APP_ID=byte-music-converter
 
 GROUP=$APP_ID
-TEMPLATE=$GROUP-tmpl-150909
-MACHINE_TYPE=g1-small
+TEMPLATE=$GROUP-tmpl-150915
+MACHINE_TYPE=n1-highcpu-2
 STARTUP_SCRIPT=startup-script.sh
 SCOPES="userinfo-email,\
 logging-write,\
