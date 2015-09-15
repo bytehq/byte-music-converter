@@ -119,18 +119,19 @@ var populateMidiFile = function (music) {
 
     for (var m = 0; m < instructions.length; ++m) {
         var instruction = instructions[m];
+
         var delay = 0;
         if (instruction.offset > currentOffset) {
             delay = instruction.offset - currentOffset;
             currentOffset = instruction.offset;
         }
 
+        if (instruction.track < 0 || instruction.track > 15) continue;
         try {
             midiTracks[0].addNoteOn(instruction.track, instruction.note, delay, instruction.velocity);
         } catch (err) {
-            logger.errorLogger.error(err);
-            logger.errorLogger.error('Track: ' + instruction.track + ', Note: ' + instruction.note + ', Delay: ' + delay + ', Velocity: ' + instruction.velocity);
-            throw err;
+            logger.errorLogger.warn(err);
+            logger.errorLogger.warn('Track: ' + instruction.track + ', Note: ' + instruction.note + ', Delay: ' + delay + ', Velocity: ' + instruction.velocity);
         }
     }
 
