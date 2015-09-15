@@ -125,7 +125,13 @@ var populateMidiFile = function (music) {
             currentOffset = instruction.offset;
         }
 
-        midiTracks[0].addNoteOn(instruction.track, instruction.note, delay, instruction.velocity);
+        try {
+            midiTracks[0].addNoteOn(instruction.track, instruction.note, delay, instruction.velocity);
+        } catch (err) {
+            logger.errorLogger.log(err);
+            logger.errorLogger.log('Track: ' + instruction.track + ', Note: ' + instruction.note + ', Delay: ' + delay + ', Velocity: ' + instruction.velocity);
+        }
+
     }
 
     return file;

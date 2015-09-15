@@ -11,9 +11,3 @@ machine:
     America/New_York
   node:
     version: v0.12.0
-
-deployment:
-  production:
-    branch: master
-    commands:
-      - ./ci-deploy.sh
